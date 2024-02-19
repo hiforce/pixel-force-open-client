@@ -10,6 +10,7 @@
     <modules>
         <module>pixel-comfy-config-model</module>
         <module>pixel-force-open-client</module>
+        <module>pixel-force-open-sample</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -31,6 +32,11 @@
             <dependency>
                 <groupId>com.hiforce.pixel.open</groupId>
                 <artifactId>pixel-comfy-config-model</artifactId>
+                <version>${pixel-force-open-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hiforce.pixel.open</groupId>
+                <artifactId>pixel-force-open-client</artifactId>
                 <version>${pixel-force-open-version}</version>
             </dependency>
             <dependency>
