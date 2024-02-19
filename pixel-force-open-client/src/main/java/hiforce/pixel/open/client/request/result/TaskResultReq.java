@@ -4,11 +4,6 @@ import hiforce.pixel.open.client.request.ClientReqDTO;
 import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.*;
 
-/**
- * @Author tongwei
- * @Date 2023/12/21 3:22 PM
- * @Version 1.0
- */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -6,12 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
-/**
- * @Author tongwei
- * @Date 2023/12/21 3:22 PM
- * @Version 1.0
- */
 @Data
 @Builder
 @NoArgsConstructor

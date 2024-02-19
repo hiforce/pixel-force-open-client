@@ -8,11 +8,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @Author tongwei
- * @Date 2023/12/21 3:22 PM
- * @Version 1.0
- */
 @Data
 @Builder
 @NoArgsConstructor

@@ -5,11 +5,7 @@ import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
-/**
- * @Author tongwei
- * @Date 2024/2/1 12:45 PM
- * @Version 1.0
- */
+
 @Builder
 @AllArgsConstructor
 public class ResourceReq extends ClientReqDTO {
