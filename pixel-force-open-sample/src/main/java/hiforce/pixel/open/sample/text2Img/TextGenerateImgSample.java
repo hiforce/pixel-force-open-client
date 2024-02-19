@@ -22,9 +22,9 @@ import java.util.concurrent.CountDownLatch;
 public class TextGenerateImgSample {
 
     private void initClient() {
-        PixelForceClientProperties.getInstance().setEndpoint("https://api-paas-gateway-dev.hiforce.dev/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("b4fed2437feb48e7b8b994a92e9f0dff");
-        PixelForceClientProperties.getInstance().setAccessSecret("d585e50c833b4b648442da05f23ea223");
+        PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
+        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
+        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
     }
 
     private void sample() throws Exception {

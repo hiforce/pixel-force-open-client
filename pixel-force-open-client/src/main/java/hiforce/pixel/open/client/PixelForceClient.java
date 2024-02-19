@@ -143,6 +143,7 @@ public class PixelForceClient {
                 uploadResult.setDesc(apiResult.getMessage());
             }
         }catch (Exception ex){
+            ex.printStackTrace();
             uploadResult.setDesc(ex.getMessage());
         }
         return uploadResult;
