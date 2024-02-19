@@ -52,31 +52,38 @@ public class PixelForceClient {
     }
 
     public ResourceResult getResourceList(ResourceReq req){
-        ResourceResult ret = ResourceResult.builder().resources(Lists.newArrayList()).desc(StringUtils.EMPTY).build();
+        ResourceResult ret = ResourceResult.builder().resources(Lists.newArrayList())
+                .status(ApiStatusEnum.FAIL.getCode()).desc(StringUtils.EMPTY).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/getResourceList";
             PixelSubmitData submitData = buildSubmitData(req);
             String result = httpUtils.doJsonDataPost(requestURL, JSON.toJSONString(submitData));
             ApiResult<ResourceResult> apiResult = JSON.parseObject(result,new TypeReference<ApiResult<ResourceResult>>(){});
-            ret = apiResult.getResult();
+            if(apiResult.getSuccess()){
+                ret = apiResult.getResult();
+            }else{
+                ret.setDesc(apiResult.getMessage());
+            }
         }catch (Exception ex){
-            ret.setStatus(ApiStatusEnum.FAIL.getCode());
             ret.setDesc(ex.getMessage());
         }
         return ret;
     }
 
     public TaskResult getTaskResult(TaskResultReq req){
-        TaskResult ret = TaskResult.builder().taskId(StringUtils.EMPTY).desc(StringUtils.EMPTY)
-                .fileUrls(Lists.newArrayList()).build();
+        TaskResult ret = TaskResult.builder().taskId(StringUtils.EMPTY).status(ApiStatusEnum.FAIL.getCode())
+                .desc(StringUtils.EMPTY).fileUrls(Lists.newArrayList()).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/getAsyncTaskResult";
             PixelSubmitData submitData = buildSubmitData(req);
             String result = httpUtils.doJsonDataPost(requestURL, JSON.toJSONString(submitData));
             ApiResult<TaskResult> apiResult = JSON.parseObject(result,new TypeReference<ApiResult<TaskResult>>(){});
-            ret = apiResult.getResult();
+            if(apiResult.getSuccess()){
+                ret = apiResult.getResult();
+            }else {
+                ret.setDesc(apiResult.getMessage());
+            }
         }catch (Exception ex){
-            ret.setStatus(ApiStatusEnum.FAIL.getCode());
             ret.setDesc(ex.getMessage());
         }
         return ret;
@@ -119,7 +126,7 @@ public class PixelForceClient {
     }
 
     public UploadResult uploadImage(UploadImgReq reqDTO){
-        UploadResult uploadResult = UploadResult.builder().build();
+        UploadResult uploadResult = UploadResult.builder().status(ApiStatusEnum.FAIL.getCode()).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/uploadImage";
             PixelSubmitData submitData = buildSubmitData(reqDTO);
@@ -130,9 +137,12 @@ public class PixelForceClient {
             files.add(new FileBody(file));
             String result = httpUtils.doPostDataWithFiles(requestURL,submitParams,files);
             ApiResult<UploadResult> apiResult = JSON.parseObject(result,new TypeReference<ApiResult<UploadResult>>(){});
-            uploadResult = apiResult.getResult();
+            if(apiResult.getSuccess()){
+                uploadResult = apiResult.getResult();
+            }else {
+                uploadResult.setDesc(apiResult.getMessage());
+            }
         }catch (Exception ex){
-            uploadResult.setStatus(ApiStatusEnum.FAIL.getCode());
             uploadResult.setDesc(ex.getMessage());
         }
         return uploadResult;
@@ -152,30 +162,36 @@ public class PixelForceClient {
         return submitData;
     }
     private InvokeResult text2ImgInvoke(ClientReqDTO reqDTO){
-        InvokeResult invokeResult = InvokeResult.builder().build();
+        InvokeResult invokeResult = InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/text2ImgInvoke";
             PixelSubmitData submitData = buildSubmitData(reqDTO);
             String result = httpUtils.doJsonDataPost(requestURL,JSON.toJSONString(submitData));
             ApiResult<InvokeResult> apiResult = JSON.parseObject(result,new TypeReference<ApiResult<InvokeResult>>(){});
-            invokeResult =  apiResult.getResult();
+            if(apiResult.getSuccess()){
+                invokeResult =  apiResult.getResult();
+            }else{
+                invokeResult.setDesc(apiResult.getMessage());
+            }
         }catch (Exception ex){
-            invokeResult.setStatus(ApiStatusEnum.FAIL.getCode());
             invokeResult.setDesc(ex.getMessage());
         }
         return invokeResult;
     }
 
     private InvokeResult img2ImgInvoke(ClientReqDTO reqDTO){
-        InvokeResult invokeResult = InvokeResult.builder().build();
+        InvokeResult invokeResult = InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/img2ImgInvoke";
             PixelSubmitData submitData = buildSubmitData(reqDTO);
             String result = httpUtils.doJsonDataPost(requestURL, JSON.toJSONString(submitData));
             ApiResult<InvokeResult> apiResult = JSON.parseObject(result,new TypeReference<ApiResult<InvokeResult>>(){});
-            invokeResult =  apiResult.getResult();
+            if(apiResult.getSuccess()){
+                invokeResult = apiResult.getResult();
+            }else{
+                invokeResult.setDesc(apiResult.getMessage());
+            }
         }catch (Exception ex){
-            invokeResult.setStatus(ApiStatusEnum.FAIL.getCode());
             invokeResult.setDesc(ex.getMessage());
         }
         return invokeResult;

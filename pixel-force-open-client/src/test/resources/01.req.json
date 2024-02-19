@@ -1,0 +1,58 @@
+{
+  "height": 0,
+  "model": {
+    "coldStartEstTime": 60000,
+    "estTime": 20000,
+    "lora1strength": 1.0,
+    "lora2strength": 1.0,
+    "lora3strength": 1.0,
+    "signature": "dec2f6a3592d662ff9549f053f44f07b",
+    "signatureStr": "[model - {name:} ]"
+  },
+  "pose": {
+    "coldStartEstTime": 0,
+    "enable": false,
+    "estTime": 0,
+    "signature": "ec0dfcafcbc7f2cfb1169de325b53f65",
+    "signatureStr": "[pose - {enable:false} ]"
+  },
+  "prompt": {
+    "coldStartEstTime": 3000,
+    "estTime": 1000,
+    "extraStyle": {
+      "cameraOption": "None",
+      "coldStartEstTime": 0,
+      "emotionType": "None",
+      "estTime": 0,
+      "magicType": "None",
+      "materialType": "None",
+      "shotType": "None",
+      "signature": "d41d8cd98f00b204e9800998ecf8427e",
+      "signatureStr": "",
+      "weatherType": "None"
+    },
+    "mainPositiveWords": "1girl",
+    "signature": "d41d8cd98f00b204e9800998ecf8427e",
+    "signatureStr": ""
+  },
+  "result": {
+    "autoOpt": true,
+    "batchCount": 1,
+    "batchSize": 4,
+    "clarity": "NORMAL",
+    "coldStartEstTime": 150000,
+    "estTime": 50000,
+    "fullDrawing": true,
+    "progressive": {
+      "enable": false,
+      "finalRedrawStrength": 0.9,
+      "startRedrawStrength": 0.25
+    },
+    "redrawStrength": 0.85,
+    "seed": 8233824665568490205,
+    "signature": "d41d8cd98f00b204e9800998ecf8427e",
+    "signatureStr": ""
+  },
+  "size": "SIZE_512_1",
+  "width": 0
+}
