@@ -9,11 +9,6 @@ import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @Author tongwei
- * @Date 2023/12/27 4:14 PM
- * @Version 1.0
- */
 public class ChangeBgReq extends ClientReqDTO {
 
     private static final long serialVersionUID = -1050607719840203544L;
