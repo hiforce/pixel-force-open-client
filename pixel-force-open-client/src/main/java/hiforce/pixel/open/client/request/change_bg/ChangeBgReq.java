@@ -4,6 +4,7 @@ import hiforce.pixel.open.client.param.depth.DepthDTO;
 import hiforce.pixel.open.client.param.edge.EdgeDTO;
 import hiforce.pixel.open.client.param.mode.ModeType;
 import hiforce.pixel.open.client.param.prompt.PromptDTO;
+import hiforce.pixel.open.client.param.result.ResultDTO;
 import hiforce.pixel.open.client.request.ClientReqDTO;
 import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.Getter;
@@ -54,6 +55,10 @@ public class ChangeBgReq extends ClientReqDTO {
 
     @Getter
     private final PromptDTO prompt = new PromptDTO();
+
+    @Getter
+    @Setter
+    private ResultDTO result = new ResultDTO();
 
     @Override
     public ScenarioType getType() {
