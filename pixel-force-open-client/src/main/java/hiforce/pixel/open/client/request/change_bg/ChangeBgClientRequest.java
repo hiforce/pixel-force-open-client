@@ -10,7 +10,7 @@ import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ChangeBgReq extends ClientReqDTO {
+public class ChangeBgClientRequest extends ClientReqDTO {
 
     private static final long serialVersionUID = -1050607719840203544L;
 
@@ -40,16 +40,19 @@ public class ChangeBgReq extends ClientReqDTO {
 
     @Getter
     @Setter
-    private boolean fixEdge = true;
+    private boolean fixEdge = false;
 
     @Getter
-    private final EdgeDTO edge = new EdgeDTO();
+    @Setter
+    private EdgeDTO edge = new EdgeDTO();
 
     @Getter
-    private final DepthDTO depth = new DepthDTO();
+    @Setter
+    private DepthDTO depth = new DepthDTO();
 
     @Getter
-    private final PromptDTO prompt = new PromptDTO();
+    @Setter
+    private PromptDTO prompt = new PromptDTO();
 
     @Getter
     @Setter

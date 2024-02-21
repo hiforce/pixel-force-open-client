@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskResultReq extends ClientReqDTO {
+public class TaskResultClientRequest extends ClientReqDTO {
     private static final long serialVersionUID = -2529403539897297438L;
 
     @Getter

@@ -19,9 +19,9 @@
     </description>
     <url>https://github.com/hiforce/pixel-force-open-client</url>
     <inceptionYear>2024</inceptionYear>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <properties>
-        <pixel-force-open-version>1.0.0</pixel-force-open-version>
+        <pixel-force-open-version>1.0.1</pixel-force-open-version>
         <version.lattice>1.0.18</version.lattice>
         <version.jdk>1.8</version.jdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -5,11 +5,13 @@ import hiforce.pixel.open.client.param.edge.EdgeDTO;
 import hiforce.pixel.open.client.param.mode.ModeType;
 import hiforce.pixel.open.client.param.mode.ReserveClothType;
 import hiforce.pixel.open.client.param.prompt.PromptDTO;
+import hiforce.pixel.open.client.param.result.ResultDTO;
 import hiforce.pixel.open.client.request.ClientReqDTO;
 import hiforce.pixel.open.client.request.ScenarioType;
 import lombok.Getter;
 import lombok.Setter;
-public class ReserveClothReq extends ClientReqDTO {
+
+public class ReserveClothClientRequest extends ClientReqDTO {
 
     private static final long serialVersionUID = -3336375738426671088L;
 
@@ -39,16 +41,23 @@ public class ReserveClothReq extends ClientReqDTO {
 
     @Getter
     @Setter
-    private boolean fixEdge = true;
+    private boolean fixEdge = false;
 
     @Getter
-    private final EdgeDTO edge = new EdgeDTO();
+    @Setter
+    private EdgeDTO edge = new EdgeDTO();
 
     @Getter
-    private final DepthDTO depth = new DepthDTO();
+    @Setter
+    private DepthDTO depth = new DepthDTO();
 
     @Getter
-    private final PromptDTO prompt = new PromptDTO();
+    @Setter
+    private PromptDTO prompt = new PromptDTO();
+
+    @Getter
+    @Setter
+    private ResultDTO result = new ResultDTO();
 
     @Override
     public ScenarioType getType() {

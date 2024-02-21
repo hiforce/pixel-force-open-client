@@ -8,7 +8,7 @@ import lombok.Builder;
 
 @Builder
 @AllArgsConstructor
-public class ResourceReq extends ClientReqDTO {
+public class ResourceClientRequest extends ClientReqDTO {
     private static final long serialVersionUID = 586856331570574580L;
 
     @Override

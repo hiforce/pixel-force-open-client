@@ -9,13 +9,13 @@ import hiforce.pixel.open.client.common.ApiResult;
 import hiforce.pixel.open.client.common.ApiStatusEnum;
 import hiforce.pixel.open.client.config.PixelForceClientProperties;
 import hiforce.pixel.open.client.request.ClientReqDTO;
-import hiforce.pixel.open.client.request.change_bg.ChangeBgReq;
-import hiforce.pixel.open.client.request.reserve_cloth.ReserveClothReq;
-import hiforce.pixel.open.client.request.resource.ResourceReq;
-import hiforce.pixel.open.client.request.result.TaskResultReq;
+import hiforce.pixel.open.client.request.change_bg.ChangeBgClientRequest;
+import hiforce.pixel.open.client.request.reserve_cloth.ReserveClothClientRequest;
+import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
+import hiforce.pixel.open.client.request.result.TaskResultClientRequest;
 import hiforce.pixel.open.client.request.submit.PixelSubmitData;
-import hiforce.pixel.open.client.request.submit.UploadImgReq;
-import hiforce.pixel.open.client.request.text2Img.Text2ImgReq;
+import hiforce.pixel.open.client.request.submit.UploadImageClientRequest;
+import hiforce.pixel.open.client.request.text2Img.Text2ImgClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
@@ -51,7 +51,7 @@ public class PixelForceClient {
         return instance;
     }
 
-    public ResourceResult getResourceList(ResourceReq req){
+    public ResourceResult getResourceList(ResourceClientRequest req){
         ResourceResult ret = ResourceResult.builder().resources(Lists.newArrayList())
                 .status(ApiStatusEnum.FAIL.getCode()).desc(StringUtils.EMPTY).build();
         try{
@@ -70,7 +70,7 @@ public class PixelForceClient {
         return ret;
     }
 
-    public TaskResult getTaskResult(TaskResultReq req){
+    public TaskResult getTaskResult(TaskResultClientRequest req){
         TaskResult ret = TaskResult.builder().taskId(StringUtils.EMPTY).status(ApiStatusEnum.FAIL.getCode())
                 .desc(StringUtils.EMPTY).fileUrls(Lists.newArrayList()).build();
         try{
@@ -95,7 +95,7 @@ public class PixelForceClient {
      * @param req Text2ImgReq
      * @return InvokeResult
      */
-    public InvokeResult textGenerateImg(Text2ImgReq req){
+    public InvokeResult textGenerateImg(Text2ImgClientRequest req){
         return PixelForceClient.getInstance().text2ImgInvoke(req);
     }
 
@@ -105,7 +105,7 @@ public class PixelForceClient {
      * @param req ChangeBgReq
      * @return InvokeResult
      */
-    public InvokeResult changeBackground(ChangeBgReq req){
+    public InvokeResult changeBackground(ChangeBgClientRequest req){
         if (StringUtils.isBlank(req.getInputImagePath())) {
             return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).desc("InputImagePath is Empty").build();
         }
@@ -118,14 +118,14 @@ public class PixelForceClient {
      * @param req ReserveClothReq
      * @return InvokeResult
      */
-    public InvokeResult reserveCloth(ReserveClothReq req){
+    public InvokeResult reserveCloth(ReserveClothClientRequest req){
         if (StringUtils.isBlank(req.getInputImagePath())) {
             return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).desc("InputImagePath is Empty").build();
         }
         return PixelForceClient.getInstance().img2ImgInvoke(req);
     }
 
-    public UploadResult uploadImage(UploadImgReq reqDTO){
+    public UploadResult uploadImage(UploadImageClientRequest reqDTO){
         UploadResult uploadResult = UploadResult.builder().status(ApiStatusEnum.FAIL.getCode()).build();
         try{
             String requestURL = PixelForceClientProperties.getInstance().getEndpoint() + "/pixel/api/uploadImage";
@@ -143,7 +143,6 @@ public class PixelForceClient {
                 uploadResult.setDesc(apiResult.getMessage());
             }
         }catch (Exception ex){
-            ex.printStackTrace();
             uploadResult.setDesc(ex.getMessage());
         }
         return uploadResult;

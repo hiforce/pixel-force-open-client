@@ -6,10 +6,10 @@ import hiforce.pixel.comfy.model.node.prompt.style.CameraAngleType;
 import hiforce.pixel.open.client.PixelForceClient;
 import hiforce.pixel.open.client.common.ApiStatusEnum;
 import hiforce.pixel.open.client.config.PixelForceClientProperties;
-import hiforce.pixel.open.client.request.resource.ResourceReq;
-import hiforce.pixel.open.client.request.result.TaskResultReq;
+import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
+import hiforce.pixel.open.client.request.result.TaskResultClientRequest;
 import hiforce.pixel.open.client.request.submit.ResourceProvider;
-import hiforce.pixel.open.client.request.text2Img.Text2ImgReq;
+import hiforce.pixel.open.client.request.text2Img.Text2ImgClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
@@ -28,12 +28,12 @@ public class TextGenerateImgSample {
     }
 
     private void sample() throws Exception {
-        ResourceResult result = PixelForceClient.getInstance().getResourceList(ResourceReq.builder().build());
+        ResourceResult result = PixelForceClient.getInstance().getResourceList(ResourceClientRequest.builder().build());
         if (!result.getStatus().equals(ApiStatusEnum.SUCCESS.getCode()) ||
                 CollectionUtils.isEmpty(result.getResources())) {
             throw new RuntimeException("resources is empty");
         }
-        Text2ImgReq text2ImgReq = new Text2ImgReq();
+        Text2ImgClientRequest text2ImgReq = new Text2ImgClientRequest();
         text2ImgReq.setProvider(ResourceProvider.CUSTOMER);
         text2ImgReq.setSize(ImageSize.SIZE_768_1);
         text2ImgReq.getPrompt().setMainPositiveWords("street,sunshine,tree");
@@ -44,7 +44,7 @@ public class TextGenerateImgSample {
         }
         System.out.println("textGenerateImg invokeResult:" + JSON.toJSONString(invokeResult));
         String resourceId = result.getResources().get(0).getId();
-        TaskResultReq taskResultReq = TaskResultReq.builder().taskId(invokeResult.getTaskId()).build();
+        TaskResultClientRequest taskResultReq = TaskResultClientRequest.builder().taskId(invokeResult.getTaskId()).build();
         taskResultReq.getResourceIds().add(resourceId);
         Timer timer = new Timer();
         CountDownLatch countDownLatch = new CountDownLatch(1);
