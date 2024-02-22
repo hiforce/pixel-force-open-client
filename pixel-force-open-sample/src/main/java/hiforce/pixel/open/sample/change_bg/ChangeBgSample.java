@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import hiforce.pixel.comfy.model.node.prompt.style.extra.MagicStyleType;
 import hiforce.pixel.open.client.PixelForceClient;
 import hiforce.pixel.open.client.common.ApiStatusEnum;
-import hiforce.pixel.open.client.config.PixelForceClientProperties;
 import hiforce.pixel.open.client.request.change_bg.ChangeBgClientRequest;
 import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
 import hiforce.pixel.open.client.request.result.TaskResultClientRequest;
@@ -14,6 +13,7 @@ import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
 import hiforce.pixel.open.client.response.UploadResult;
+import hiforce.pixel.open.sample.common.BaseSample;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Objects;
@@ -21,15 +21,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
-public class ChangeBgSample {
+public class ChangeBgSample extends BaseSample {
 
-    private void initClient() {
-        PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
-        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
-    }
 
-    private void sample() throws Exception {
+    public void execute() throws Exception {
         ResourceResult result = PixelForceClient.getInstance().getResourceList(ResourceClientRequest.builder().build());
         if (!result.getStatus().equals(ApiStatusEnum.SUCCESS.getCode()) ||
                 CollectionUtils.isEmpty(result.getResources())) {
@@ -73,15 +68,6 @@ public class ChangeBgSample {
             }
         }, 1000L, 1000L);
         countDownLatch.await();
-    }
-
-    public void run() {
-        try {
-            initClient();
-            sample();
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-        }
     }
 
     public static void main(String[] args) {

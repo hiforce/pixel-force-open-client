@@ -8,6 +8,8 @@ import lombok.Getter;
  * @since 2023/11/28
  */
 public enum ScenarioType implements IType {
+
+    GENERAL_PROMPT("GeneralPrompt"),
     TXT_2_IMG("TagGenerate"),
     IMG_2_IMG("Image2Image"),
     CHANGE_BG("ChangeBg"),

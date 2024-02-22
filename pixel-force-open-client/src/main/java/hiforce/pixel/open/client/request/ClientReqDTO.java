@@ -29,7 +29,7 @@ public abstract class ClientReqDTO implements Serializable {
 
     @Getter
     @Setter
-    private ResourceProvider provider = ResourceProvider.SYSTEM;
+    private ResourceProvider provider = ResourceProvider.CUSTOMER;
 
     /**
      * 用来处理本次请求数据的资源实例ID
