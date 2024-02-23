@@ -34,7 +34,7 @@ The following video demonstrates a simple process of making API calls for backgr
   <img width="512" src="https://github.com/hiforce/pixel-force-open-client/assets/11450506/8df89473-93b0-47f4-95c4-56f7ac75eaf7"/>
 </a>
 
-**Integration based on a self-built ComfyUI container**
+**Integration with self-built ComfyUI container**
 
 If you have built your own ComfyUI container, you can access: [https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI) and follow the instructions on the ComfyUI official website to build the ComfyUI container. Alternatively, you can also log in to [https://www.hiforce.net](https://www.hiforce.net) to purchase a ComfyUI container from the HiForce. For self-built ComfyUI containers, you will also need to refer to the Enhanced ComfyUI Container Patch for additional instructions: [Patch for ComfyUI](https://github.com/hiforce/pixel-force-open-client/wiki/Patch-for-ComfyUI)
 
