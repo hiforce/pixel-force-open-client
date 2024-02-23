@@ -1,3 +1,77 @@
+
+[PixelForce](https://pixel.hiforce.ai) is an online AI drawing software provided by HiForce Online (https://pixel.hiforce.net). Based on PixelForce, it can assist you in achieving various tasks such as dressing virtual models with specified products, background redesigning, model face swapping, background removal, and more.
+
+In addition to providing an online graphical interface, PixelForce also offers an Open API for easy integration into your applications. Currently, PixelForce's Open API includes the following functionalities:
+
+Background Redesign: Retain the main subject (people, objects) while replacing and redesigning the background.
+Clothes Redesign: Keep the clothes of the subject unchanged while replacing and redesigning the subject and background.
+Text-to-Image: Generate images based on keywords from textual descriptions.
+High-quality Background Removal (TBD): [To DO]
+High-quality White Background Image (TBD): [To DO]
+
+
+**Based on PixelForce OpenAPI Drawing Steps:**
+
+1. First, log in to the HiForce Dojo (https://www.hiforce.net), register an account, and activate a GPU container. Choose the ComfyUI type for the container.
+2. In the account management section of HiForce Dojo, generate Access Key and Access Secret credentials for API access.
+3. Create a Java project and import the PixelForce client package into the project's pom.xml file.
+
+```xml
+<dependency>
+  <groupId>com.hiforce.pixel.open</groupId>
+  <artifactId>pixel-force-open-client</artifactId>
+  <version>1.0.3</version>
+</depe
+
+4. Refer to the sample we provided and make API calls accordingly.
+
+Reference sample code url:[https://github.com/hiforce/pixel-force-open-client/tree/main/pixel-force-open-sample](https://github.com/hiforce/pixel-force-open-client/tree/main/pixel-force-open-sample)
+
+The following video demonstrates a simple process of making API calls for background redesign (click to play):
+
+<a href="https://youtu.be/5bj3YOE-9vE?si=s0Tf00iBqSAy7PsH" target="blank" title="用API进行背景重绘">
+  <img width="512" src="https://github.com/hiforce/pixel-force-open-client/assets/11450506/8df89473-93b0-47f4-95c4-56f7ac75eaf7"/>
+</a>
+
+**Integration based on a self-built ComfyUI container**
+
+If you have built your own ComfyUI container, you can access: [https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI) and follow the instructions on the ComfyUI official website to build the ComfyUI container. Alternatively, you can also log in to [https://www.hiforce.net](https://www.hiforce.net) to purchase a ComfyUI container from the HiForce. For self-built ComfyUI containers, you will also need to refer to the Enhanced ComfyUI Container Patch for additional instructions: [Patch for ComfyUI](https://github.com/hiforce/pixel-force-open-client/wiki/Patch-for-ComfyUI)
+
+Please refer to: [GeneralPromptSample03.java](https://github.com/hiforce/pixel-force-open-client/blob/main/pixel-force-open-sample/src/main/java/hiforce/pixel/open/sample/general/GeneralPromptSample03.java)
+
+```java
+public class GeneralPromptSample03 extends BaseLocalSample {
+
+    public static void main(String[] args) {
+        GeneralPromptSample03 sample = new GeneralPromptSample03();
+        sample.run();
+    }
+
+    @Override
+    public void execute() throws Exception {
+        String workflowJSON = getTextFromResource("/general/01-default-workflow.json");
+        String workflowApiJSON = getTextFromResource("/general/01-default-workflow-api.json");
+
+        WorkflowApi workflowApi = JSON.parseObject(workflowApiJSON, WorkflowApi.class);
+        workflowApi.setNodeFieldValue(6, "text",
+                "1girl, beauty, long hair, close shot," +
+                        "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
+
+        SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
+        QueueResult queueResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
+
+        System.out.println("General Prompt invoke result:" + JSON.toJSONString(queueResult));
+
+        waitAndQueryTaskExecuteResult(queueResult.getPromptId(), invoker);
+    }
+}
+```
+
+In this example, we provide a WorkflowApi object through which you can modify workflow parameters. Use the SimpleComfyInvoker to execute the workflow file and parameters on the specified ComfyUI instance. In the waitAndQueryTaskExecuteResult method, we offer an example of periodically querying task progress and processing results. The program runs as follows:
+
+![image](https://github.com/hiforce/pixel-force-open-client/assets/11450506/a9507006-f820-4e3a-b86d-36e7e8266348)
+
+---
 PixelForce是原力在线（[https://pixel.hiforce.net](https://pixel.hiforce.net)）提供的在线AI绘图软件。基于PixelForce可以帮助您，对指定的商品实现真人模特穿搭、背景重绘、模特换脸、去除背景等。
 
 PixelForce除了提供在线图形化操作界面外，还提供了Open API方式，以方便被集成到您的应用中。目前，PixelForce 提供的OpenAPI包含以下功能：
@@ -11,6 +85,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 1. 首先需要登录原力道场（[https://www.hiforce.net](https://www.hiforce.net)） 注册账号，并开通GPU容器，镜像需要选择 ComfyUI 类型
 2. 在原力道场的账号管理中，生成用于API访问的Access Key以及 Access Secret凭证
 3. 创建Java工程，并在pom.xml中，引入PixelForce客户端包
+
 ```xml
 <dependency>
   <groupId>com.hiforce.pixel.open</groupId>
