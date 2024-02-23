@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Rocky Yu
  * @since 2023/10/18
  */
-public class UploadResult implements Serializable {
+public class UploadImageResult implements Serializable {
 
     private static final long serialVersionUID = 655715678936801756L;
 
@@ -28,11 +28,11 @@ public class UploadResult implements Serializable {
     private String type;
 
 
-    public UploadResult() {
+    public UploadImageResult() {
 
     }
 
-    public UploadResult(String name) {
+    public UploadImageResult(String name) {
         this.name = name;
     }
 

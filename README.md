@@ -59,11 +59,11 @@ public class GeneralPromptSample03 extends BaseLocalSample {
                         "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
 
         SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
-        QueueResult queueResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
+        QueueResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
 
-        System.out.println("General Prompt invoke result:" + JSON.toJSONString(queueResult));
+        System.out.println("General Prompt invoke result:" + JSON.toJSONString(promptResult));
 
-        waitAndQueryTaskExecuteResult(queueResult.getPromptId(), invoker);
+        waitAndQueryTaskExecuteResult(promptResult.getPromptId(), invoker);
     }
 }
 ```
@@ -130,11 +130,11 @@ public class GeneralPromptSample03 extends BaseLocalSample {
                         "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
 
         SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
-        QueueResult queueResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
+        QueueResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
 
-        System.out.println("General Prompt invoke result:" + JSON.toJSONString(queueResult));
+        System.out.println("General Prompt invoke result:" + JSON.toJSONString(promptResult));
 
-        waitAndQueryTaskExecuteResult(queueResult.getPromptId(), invoker);
+        waitAndQueryTaskExecuteResult(promptResult.getPromptId(), invoker);
     }
 }
 ```

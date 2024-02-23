@@ -122,7 +122,7 @@ public class SimpleComfyInvoker {
         return CollectionUtils.containsAny(result.getRunning(), promptIds);
     }
 
-    public UploadResult uploadImageInput(String resourcePath) {
+    public UploadImageResult uploadImageInput(String resourcePath) {
         URL url = SimpleComfyInvoker.class.getResource(resourcePath);
         if (null == url) {
             return null;
@@ -131,11 +131,11 @@ public class SimpleComfyInvoker {
         return uploadImageInput(file, "hiforce");
     }
 
-    public UploadResult uploadImageInput(File imageFile) {
+    public UploadImageResult uploadImageInput(File imageFile) {
         return uploadImageInput(imageFile, "hiforce");
     }
 
-    public UploadResult uploadImageInput(File imageFile, String fold) {
+    public UploadImageResult uploadImageInput(File imageFile, String fold) {
         String requestUrl = host + UPLOAD_IMAGE;
         DateFormat df = new SimpleDateFormat("yyyyMMdd");
         String dateStr = df.format(new Date());
@@ -153,7 +153,7 @@ public class SimpleComfyInvoker {
             body.put("subfolder", dateStr);
             String resultJson = httpUtils.doUploadFile(requestUrl, body, "image",
                     filename, Files.newInputStream(imageFile.toPath()));
-            return JSON.parseObject(resultJson, UploadResult.class);
+            return JSON.parseObject(resultJson, UploadImageResult.class);
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
             throw new LatticeRuntimeException(Message.code("PF_CLIENT_ERR_003", requestUrl, ex.getMessage(), imageFile.getName()));
@@ -161,13 +161,13 @@ public class SimpleComfyInvoker {
     }
 
 
-    public QueueResult startQueuePrompt(WorkflowApi prompt, String workflow) {
+    public PromptResult startQueuePrompt(WorkflowApi prompt, String workflow) {
         String jsonData = buildRequestData(prompt, workflow).toJSONString();
         String serverUrl = host + QUEUE_PROMPT;
         try {
             String respText = httpUtils.doJsonDataPost(serverUrl, jsonData);
             log.warn(">>Comfy Resp:" + respText);
-            return JSON.parseObject(respText, QueueResult.class);
+            return JSON.parseObject(respText, PromptResult.class);
         } catch (IOException e){
             throw new LatticeRuntimeException("PF_CLIENT_ERR_002",serverUrl,e.getMessage());
         }catch (Exception ex) {

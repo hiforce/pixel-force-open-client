@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Rocky Yu
  * @since 2023/10/26
  */
-public class QueueResult implements Serializable {
+public class PromptResult implements Serializable {
 
     private static final long serialVersionUID = -7001411538877298986L;
 
