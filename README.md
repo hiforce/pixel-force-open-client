@@ -31,7 +31,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 
 **基于自建ComfyUI容器的集成**
 
-如果是自己构建的ComfyUI容器，您可以访问：https://github.com/comfyanonymous/ComfyUI，按照ComfyUI官网指导进行ComfyUI容器构建。或者，您也可以登录 [https://www.hiforce.net](https://www.hiforce.net)，在原力道场上购买ComfyUI容器。对于自行构建的ComfyUI容器，您还需要参考[增强ComfyUI容器补丁](https://github.com/hiforce/pixel-force-open-client/wiki/%E5%A2%9E%E5%BC%BAComfyUI%E5%AE%B9%E5%99%A8%E8%A1%A5%E4%B8%81)
+如果是自己构建的ComfyUI容器，您可以访问：[https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI)，按照ComfyUI官网指导进行ComfyUI容器构建。或者，您也可以登录 [https://www.hiforce.net](https://www.hiforce.net)，在原力道场上购买ComfyUI容器。对于自行构建的ComfyUI容器，您还需要参考[增强ComfyUI容器补丁](https://github.com/hiforce/pixel-force-open-client/wiki/%E5%A2%9E%E5%BC%BAComfyUI%E5%AE%B9%E5%99%A8%E8%A1%A5%E4%B8%81)
 
 您可以参考：[GeneralPromptSample03.java](https://github.com/hiforce/pixel-force-open-client/blob/main/pixel-force-open-sample/src/main/java/hiforce/pixel/open/sample/general/GeneralPromptSample03.java)
 
