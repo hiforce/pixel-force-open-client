@@ -21,7 +21,8 @@ High-quality White Background Image (TBD): [To DO]
   <groupId>com.hiforce.pixel.open</groupId>
   <artifactId>pixel-force-open-client</artifactId>
   <version>1.0.3</version>
-</depe
+</dependency>
+```
 
 4. Refer to the sample we provided and make API calls accordingly.
 
