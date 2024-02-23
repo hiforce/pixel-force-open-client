@@ -12,14 +12,14 @@ import hiforce.pixel.open.client.request.text2Img.Text2ImgClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
-import hiforce.pixel.open.sample.common.BaseSample;
+import hiforce.pixel.open.sample.common.BaseRemoteSample;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
-public class TextGenerateImgSample extends BaseSample {
+public class TextGenerateImgSample extends BaseRemoteSample {
     public void execute() throws Exception {
         ResourceResult result = PixelForceClient.getInstance().getResourceList(ResourceClientRequest.builder().build());
         if (!result.getStatus().equals(ApiStatusEnum.SUCCESS.getCode()) ||

@@ -6,13 +6,13 @@ import hiforce.pixel.open.client.common.ApiStatusEnum;
 import hiforce.pixel.open.client.request.general.GeneralPromptClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
-import hiforce.pixel.open.sample.common.BaseSample;
+import hiforce.pixel.open.sample.common.BaseRemoteSample;
 
 /**
  * @author Rocky Yu
  * @since 2024/2/22
  */
-public class GeneralPromptSample01 extends BaseSample {
+public class GeneralPromptSample01 extends BaseRemoteSample {
 
     public static void main(String[] args) {
         GeneralPromptSample01 sample = new GeneralPromptSample01();

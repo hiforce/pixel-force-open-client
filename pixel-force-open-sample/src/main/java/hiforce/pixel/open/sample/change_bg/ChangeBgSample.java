@@ -13,7 +13,7 @@ import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
 import hiforce.pixel.open.client.response.UploadResult;
-import hiforce.pixel.open.sample.common.BaseSample;
+import hiforce.pixel.open.sample.common.BaseRemoteSample;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Objects;
@@ -21,7 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
-public class ChangeBgSample extends BaseSample {
+public class ChangeBgSample extends BaseRemoteSample {
 
 
     public void execute() throws Exception {

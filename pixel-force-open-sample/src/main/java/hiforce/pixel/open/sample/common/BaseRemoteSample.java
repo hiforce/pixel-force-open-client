@@ -23,11 +23,11 @@ import java.util.concurrent.CountDownLatch;
  * @author Rocky Yu
  * @since 2024/2/22
  */
-public abstract class BaseSample {
+public abstract class BaseRemoteSample {
     protected void initClient() {
         PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
-        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
+        PixelForceClientProperties.getInstance().setAccessKey("e964682dcb5248898b1c77d0a89cdff4");
+        PixelForceClientProperties.getInstance().setAccessSecret("ISWq8nvF");
     }
 
 
@@ -73,7 +73,7 @@ public abstract class BaseSample {
     }
 
     public String getTextFromResource(String resource) {
-        URL url = BaseSample.class.getResource(resource);
+        URL url = BaseRemoteSample.class.getResource(resource);
         assert null != url;
         File file = new File(url.getPath());
         try {
