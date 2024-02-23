@@ -18,8 +18,9 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
   <version>1.0.2</version>
 </dependency>
 ```
+
 4. 参考我们提供的样例，进行API调用
-   参考代码地址：https://github.com/hiforce/pixel-force-open-client/tree/main/pixel-force-open-sample
+   参考代码地址：[https://github.com/hiforce/pixel-force-open-client/tree/main/pixel-force-open-sample](https://github.com/hiforce/pixel-force-open-client/tree/main/pixel-force-open-sample)
 
 下面的视频是一个简单的背景重绘的API调用过程（点击后播放）：
 
