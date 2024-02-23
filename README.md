@@ -1,5 +1,5 @@
 
-[PixelForce](https://pixel.hiforce.ai) is an online AI drawing software provided by HiForce Online (https://pixel.hiforce.net). Based on PixelForce, it can assist you in achieving various tasks such as dressing virtual models with specified products, background redesigning, model face swapping, background removal, and more.
+[PixelForce](https://pixel.hiforce.ai) is an online AI drawing software provided by HiFORCE (https://pixel.hiforce.net). Based on PixelForce, it can assist you in achieving various tasks such as dressing virtual models with specified products, background redesigning, model face swapping, background removal, and more.
 
 In addition to providing an online graphical interface, PixelForce also offers an Open API for easy integration into your applications. Currently, PixelForce's Open API includes the following functionalities:
 
