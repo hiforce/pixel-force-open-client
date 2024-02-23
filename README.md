@@ -3,11 +3,11 @@
 
 In addition to providing an online graphical interface, PixelForce also offers an Open API for easy integration into your applications. Currently, PixelForce's Open API includes the following functionalities:
 
-Background Redesign: Retain the main subject (people, objects) while replacing and redesigning the background.
-Clothes Redesign: Keep the clothes of the subject unchanged while replacing and redesigning the subject and background.
-Text-to-Image: Generate images based on keywords from textual descriptions.
-High-quality Background Removal (TBD): [To DO]
-High-quality White Background Image (TBD): [To DO]
+* Background Redesign: Retain the main subject (people, objects) while replacing and redesigning the background.
+* Clothes Redesign: Keep the clothes of the subject unchanged while replacing and redesigning the subject and background.
+* Text-to-Image: Generate images based on keywords from textual descriptions.
+* High-quality Background Removal (TBD): [To DO]
+* High-quality White Background Image (TBD): [To DO]
 
 
 **Based on PixelForce OpenAPI Drawing Steps:**
