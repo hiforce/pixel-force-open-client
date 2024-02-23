@@ -24,8 +24,8 @@ public class GeneralPromptSample03 extends BaseLocalSample {
 
         WorkflowApi workflowApi = JSON.parseObject(workflowApiJSON, WorkflowApi.class);
         workflowApi.setNodeFieldValue(6, "text",
-                "1girl, beauty, long hair, close shot," +
-                        "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
+                "1girl, beauty, long hair, upper body, close shot," +
+                        "happy, walking in the park, masterpiece,absurdres,intricate,high detail");
 
         SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
         QueueResult queueResult = invoker.startQueuePrompt(workflowApi, workflowJSON);

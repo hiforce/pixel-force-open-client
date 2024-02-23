@@ -5,7 +5,7 @@
     <parent>
         <artifactId>pixel-force-open-client-all</artifactId>
         <groupId>com.hiforce.pixel.open</groupId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
