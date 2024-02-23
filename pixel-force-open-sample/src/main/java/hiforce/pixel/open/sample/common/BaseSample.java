@@ -24,6 +24,12 @@ import java.util.concurrent.CountDownLatch;
  * @since 2024/2/22
  */
 public abstract class BaseSample {
+    protected void initClient() {
+        PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
+        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
+        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
+    }
+
 
     public void waitAndQueryTaskExecuteResult(InvokeResult invokeResult, String resourceId) throws Exception {
         TaskResultClientRequest taskResultReq = TaskResultClientRequest.builder().taskId(invokeResult.getTaskId()).build();
@@ -53,15 +59,6 @@ public abstract class BaseSample {
             throw new RuntimeException("No available ComfyUI container resource");
         }
         return result;
-    }
-
-    protected void initClient() {
-        PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("3c4339e29dc64992bfc0168690fbe3be");
-        PixelForceClientProperties.getInstance().setAccessSecret("PDgjr78Q");
-
-//        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
-//        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
     }
 
     public abstract void execute() throws Exception;
