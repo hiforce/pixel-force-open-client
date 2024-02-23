@@ -26,8 +26,8 @@ import java.util.concurrent.CountDownLatch;
 public abstract class BaseRemoteSample {
     protected void initClient() {
         PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("e964682dcb5248898b1c77d0a89cdff4");
-        PixelForceClientProperties.getInstance().setAccessSecret("ISWq8nvF");
+        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
+        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
     }
 
 
