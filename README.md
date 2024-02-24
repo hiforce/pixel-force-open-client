@@ -20,7 +20,7 @@ In addition to providing an online graphical interface, PixelForce also offers a
 <dependency>
   <groupId>com.hiforce.pixel.open</groupId>
   <artifactId>pixel-force-open-client</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
@@ -91,7 +91,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 <dependency>
   <groupId>com.hiforce.pixel.open</groupId>
   <artifactId>pixel-force-open-client</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
