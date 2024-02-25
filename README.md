@@ -59,7 +59,7 @@ public class GeneralPromptSample03 extends BaseLocalSample {
                         "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
 
         SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
-        QueueResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
+        PromptResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
 
         System.out.println("General Prompt invoke result:" + JSON.toJSONString(promptResult));
 
@@ -130,7 +130,7 @@ public class GeneralPromptSample03 extends BaseLocalSample {
                         "happy, walking in the park, upper body, masterpiece,absurdres,intricate,high detail");
 
         SimpleComfyInvoker invoker = new SimpleComfyInvoker("http://localhost:8100");
-        QueueResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
+       PromptResult promptResult = invoker.startQueuePrompt(workflowApi, workflowJSON);
 
         System.out.println("General Prompt invoke result:" + JSON.toJSONString(promptResult));
 
