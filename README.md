@@ -6,6 +6,7 @@ In addition to providing an online graphical interface, PixelForce also offers a
 * Background Redesign: Retain the main subject (people, objects) while replacing and redesigning the background.
 * Clothes Redesign: Keep the clothes of the subject unchanged while replacing and redesigning the subject and background.
 * Text-to-Image: Generate images based on keywords from textual descriptions.
+* Text Swap Face:Based on the prompts, change the faces of the specified individuals in the image. [View Example](https://github.com/hiforce/pixel-force-open-client/wiki/%E6%96%87%E6%9C%AC%E6%8D%A2%E8%84%B8%E5%9C%BA%E6%99%AF%E6%A0%B7%E4%BE%8B)
 * High-quality Background Removal (TBD): [To DO]
 * High-quality White Background Image (TBD): [To DO]
 
@@ -79,6 +80,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 * 背景重绘：保留人物、物体主体不变，将背景进行替换重新绘制
 * 留衣重绘：保留人物衣服不变，将人物以及背景进行替换重新绘制
 * 文生图：根据文字描述的关键词，生成图像
+* 文本换脸：根据提示词描述对指定的图片中的人物进行换脸。[查看样例](https://github.com/hiforce/pixel-force-open-client/wiki/%E6%96%87%E6%9C%AC%E6%8D%A2%E8%84%B8%E5%9C%BA%E6%99%AF%E6%A0%B7%E4%BE%8B)
 * 高质量去除背景(TBD)：
 * 高质量白底图(TBD)：
 
