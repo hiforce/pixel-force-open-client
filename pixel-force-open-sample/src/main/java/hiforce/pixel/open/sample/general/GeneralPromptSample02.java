@@ -15,6 +15,16 @@ import hiforce.pixel.open.sample.common.BaseRemoteSample;
  */
 public class GeneralPromptSample02 extends BaseRemoteSample {
 
+    @Override
+    public String getAccessKey() {
+        return "YOUR_ACCESS_KEY";
+    }
+
+    @Override
+    public String getAccessSecret() {
+        return "YOUR_ACCESS_SECRET";
+    }
+
     public static void main(String[] args) {
         GeneralPromptSample02 sample = new GeneralPromptSample02();
         sample.run();

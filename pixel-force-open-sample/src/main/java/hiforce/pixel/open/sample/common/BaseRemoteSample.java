@@ -20,13 +20,18 @@ import java.util.concurrent.CountDownLatch;
  * @since 2024/2/22
  */
 public abstract class BaseRemoteSample extends BaseSample {
+
+
+    public abstract String getAccessKey();
+
+    public abstract String getAccessSecret();
+
     protected void initClient() {
         PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
-        PixelForceClientProperties.getInstance().setAccessSecret("YOUR_ACCESS_SECRET");
+        PixelForceClientProperties.getInstance().setAccessKey(getAccessKey());
+        PixelForceClientProperties.getInstance().setAccessSecret(getAccessSecret());
     }
-
-
+    
     public void waitAndQueryTaskExecuteResult(InvokeResult invokeResult, String resourceId) throws Exception {
         TaskResultClientRequest taskResultReq = TaskResultClientRequest.builder().taskId(invokeResult.getTaskId()).build();
         taskResultReq.getResourceIds().add(resourceId);

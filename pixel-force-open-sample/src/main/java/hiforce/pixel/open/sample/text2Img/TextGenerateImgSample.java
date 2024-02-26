@@ -20,6 +20,16 @@ import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
 public class TextGenerateImgSample extends BaseRemoteSample {
+
+    @Override
+    public String getAccessKey() {
+        return "YOUR_ACCESS_KEY";
+    }
+
+    @Override
+    public String getAccessSecret() {
+        return "YOUR_ACCESS_SECRET";
+    }
     public void execute() throws Exception {
         ResourceResult result = PixelForceClient.getInstance().getResourceList(ResourceClientRequest.builder().build());
         if (!result.getStatus().equals(ApiStatusEnum.SUCCESS.getCode()) ||

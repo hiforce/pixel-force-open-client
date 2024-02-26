@@ -16,9 +16,20 @@ import org.apache.commons.collections4.CollectionUtils;
  * @since 2024/2/26
  */
 public class TextSwapFaceSample01 extends BaseRemoteSample {
+
     public static void main(String[] args) {
         TextSwapFaceSample01 sample = new TextSwapFaceSample01();
         sample.run();
+    }
+
+    @Override
+    public String getAccessKey() {
+        return "YOUR_ACCESS_KEY";
+    }
+
+    @Override
+    public String getAccessSecret() {
+        return "YOUR_ACCESS_SECRET";
     }
 
     @Override
