@@ -16,6 +16,7 @@ import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
 import hiforce.pixel.open.client.request.result.TaskResultClientRequest;
 import hiforce.pixel.open.client.request.submit.PixelSubmitData;
 import hiforce.pixel.open.client.request.submit.UploadImageClientRequest;
+import hiforce.pixel.open.client.request.swap_face.TextSwapFaceClientRequest;
 import hiforce.pixel.open.client.request.text2Img.Text2ImgClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
@@ -113,7 +114,7 @@ public class PixelForceClient {
         if (StringUtils.isBlank(request.getInputImagePath())) {
             return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).desc("InputImagePath is Empty").build();
         }
-        return _invoke(request, "/pixel/api/img2ImgInvoke");
+        return _invoke(request, "/pixel/api/general_invoke");
     }
 
     /**
@@ -124,7 +125,15 @@ public class PixelForceClient {
         if (StringUtils.isBlank(request.getInputImagePath())) {
             return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode()).desc("InputImagePath is Empty").build();
         }
-        return _invoke(request, "/pixel/api/img2ImgInvoke");
+        return _invoke(request, "/pixel/api/general_invoke");
+    }
+
+    public InvokeResult textSwapFace(TextSwapFaceClientRequest request) {
+        if (request.isEnableMask() && StringUtils.isBlank(request.getMaskImagePath())) {
+            return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode())
+                    .desc("The MaskImagePath is Empty").build();
+        }
+        return _invoke(request, "/pixel/api/general_invoke");
     }
 
     /**

@@ -10,11 +10,7 @@ import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
@@ -23,7 +19,7 @@ import java.util.concurrent.CountDownLatch;
  * @author Rocky Yu
  * @since 2024/2/22
  */
-public abstract class BaseRemoteSample {
+public abstract class BaseRemoteSample extends BaseSample {
     protected void initClient() {
         PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
         PixelForceClientProperties.getInstance().setAccessKey("YOUR_ACCESS_KEY");
@@ -61,26 +57,12 @@ public abstract class BaseRemoteSample {
         return result;
     }
 
-    public abstract void execute() throws Exception;
-
     public final void run() {
         try {
             initClient();
             execute();
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
-        }
-    }
-
-    public String getTextFromResource(String resource) {
-        URL url = BaseRemoteSample.class.getResource(resource);
-        assert null != url;
-        File file = new File(url.getPath());
-        try {
-            return FileUtils.readFileToString(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 }

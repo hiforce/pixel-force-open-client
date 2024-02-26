@@ -6,12 +6,8 @@ import hiforce.pixel.open.client.comfy.ImageOutputType;
 import hiforce.pixel.open.client.comfy.SimpleComfyInvoker;
 import hiforce.pixel.open.client.comfy.TaskDetailResult;
 import hiforce.pixel.open.client.comfy.TaskQueueResult;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +18,7 @@ import java.util.stream.Collectors;
  * @author Rocky Yu
  * @since 2024/2/22
  */
-public abstract class BaseLocalSample {
+public abstract class BaseLocalSample extends BaseSample {
 
     public void waitAndQueryTaskExecuteResult(String promptId, SimpleComfyInvoker invoker) throws Exception {
 
@@ -32,16 +28,15 @@ public abstract class BaseLocalSample {
             @Override
             public void run() {
                 TaskQueueResult queueResult = invoker.doQueryTaskQueueInfo(Lists.newArrayList(promptId));
-                if( queueResult.isRunning()){
+                if (queueResult.isRunning()) {
                     System.out.println("Task task running:" + JSON.toJSONString(queueResult));
-                }
-                else {
-                    List<TaskDetailResult> result =  invoker.doQueryTaskDetails(Lists.newArrayList(promptId));
-                    List<String> imageUrls = result.stream().flatMap(p-> p.getOutputs().stream())
-                                    .flatMap(p-> p.getImages().stream())
-                            .filter(p-> p.getType() == ImageOutputType.output)
-                            .map(p-> String.format("%s/view?filename=%s&subfolder=%s&type=output", invoker.getHost(),
-                                    p.getFilename(), StringUtils.isEmpty(p.getSubfolder())?"":p.getSubfolder()))
+                } else {
+                    List<TaskDetailResult> result = invoker.doQueryTaskDetails(Lists.newArrayList(promptId));
+                    List<String> imageUrls = result.stream().flatMap(p -> p.getOutputs().stream())
+                            .flatMap(p -> p.getImages().stream())
+                            .filter(p -> p.getType() == ImageOutputType.output)
+                            .map(p -> String.format("%s/view?filename=%s&subfolder=%s&type=output", invoker.getHost(),
+                                    p.getFilename(), StringUtils.isEmpty(p.getSubfolder()) ? "" : p.getSubfolder()))
                             .collect(Collectors.toList());
                     System.out.println("Task finished:" + JSON.toJSONString(imageUrls));
                     countDownLatch.countDown();
@@ -52,25 +47,11 @@ public abstract class BaseLocalSample {
         countDownLatch.await();
     }
 
-    public abstract void execute() throws Exception;
-
     public final void run() {
         try {
             execute();
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
-        }
-    }
-
-    public String getTextFromResource(String resource) {
-        URL url = BaseLocalSample.class.getResource(resource);
-        assert null != url;
-        File file = new File(url.getPath());
-        try {
-            return FileUtils.readFileToString(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 }
