@@ -4,16 +4,12 @@ import com.alibaba.fastjson.JSON;
 import hiforce.pixel.open.client.PixelForceClient;
 import hiforce.pixel.open.client.common.ApiStatusEnum;
 import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
-import hiforce.pixel.open.client.request.submit.UploadImageClientRequest;
 import hiforce.pixel.open.client.request.swap_face.TextSwapFaceClientRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.UploadResult;
-import hiforce.pixel.open.sample.change_bg.ChangeBgSample;
 import hiforce.pixel.open.sample.common.BaseRemoteSample;
 import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.Objects;
 
 /**
  * @author Rocky Yu
