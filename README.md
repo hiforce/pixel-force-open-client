@@ -31,7 +31,7 @@ Reference sample code url:[https://github.com/hiforce/pixel-force-open-client/tr
 
 The following video demonstrates a simple process of making API calls for background redesign (click to play):
 
-<a href="https://youtu.be/5bj3YOE-9vE?si=s0Tf00iBqSAy7PsH" target="blank" title="用API进行背景重绘">
+<a href="https://www.youtube.com/watch?v=KShk9mOya_U" target="blank" title="用API进行背景重绘">
   <img width="512" src="https://github.com/hiforce/pixel-force-open-client/assets/11450506/8df89473-93b0-47f4-95c4-56f7ac75eaf7"/>
 </a>
 
@@ -102,7 +102,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 
 下面的视频是一个简单的背景重绘的API调用过程（点击后播放）：
 
-<a href="https://youtu.be/5bj3YOE-9vE?si=s0Tf00iBqSAy7PsH" target="blank" title="用API进行背景重绘">
+<a href="https://www.youtube.com/watch?v=KShk9mOya_U" target="blank" title="用API进行背景重绘">
   <img width="512" src="https://github.com/hiforce/pixel-force-open-client/assets/11450506/8df89473-93b0-47f4-95c4-56f7ac75eaf7"/>
 </a>
 
