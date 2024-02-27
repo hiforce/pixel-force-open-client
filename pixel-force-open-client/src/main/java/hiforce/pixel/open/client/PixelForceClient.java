@@ -11,6 +11,7 @@ import hiforce.pixel.open.client.config.PixelForceClientProperties;
 import hiforce.pixel.open.client.request.ClientReqDTO;
 import hiforce.pixel.open.client.request.change_bg.ChangeBgClientRequest;
 import hiforce.pixel.open.client.request.general.GeneralPromptClientRequest;
+import hiforce.pixel.open.client.request.rembg.RemoveBgClientRequest;
 import hiforce.pixel.open.client.request.reserve_cloth.ReserveClothClientRequest;
 import hiforce.pixel.open.client.request.resource.ResourceClientRequest;
 import hiforce.pixel.open.client.request.result.TaskResultClientRequest;
@@ -132,6 +133,16 @@ public class PixelForceClient {
         if (request.isEnableMask() && StringUtils.isBlank(request.getMaskImagePath())) {
             return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode())
                     .desc("The MaskImagePath is Empty").build();
+        }
+        return _invoke(request, "/pixel/api/general_invoke");
+    }
+
+    public InvokeResult removeBackground(RemoveBgClientRequest request) {
+        if (!request.isTransparent() && !request.isColorMode()) {
+            if (StringUtils.isEmpty(request.getBgImagePath())) {
+                return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode())
+                        .desc("The Background Image is Empty").build();
+            }
         }
         return _invoke(request, "/pixel/api/general_invoke");
     }

@@ -11,15 +11,15 @@ public enum ScenarioType implements IType {
 
     GENERAL_PROMPT("GeneralPrompt"),
     TXT_2_IMG("TagGenerate"),
-
     IMG_2_IMG("Image2Image"),
     CHANGE_BG("ChangeBg"),
     RESERVE_CLOTH("ReserveCloth"),
     QUERY_RESOURCE("QueryResource"),
     UPLOAD_IMG("UploadImage"),
     GET_TASK_RESULT("GetTaskResult"),
+    TEXT_SWAP_FACE("TextSwapFace"),
 
-    TEXT_SWAP_FACE("TextSwapFace");
+    REMOVE_BG("RemoveBg");
 
     @Getter
     private final String value;

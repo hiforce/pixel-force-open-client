@@ -10,6 +10,7 @@ import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,8 +29,18 @@ public abstract class BaseRemoteSample extends BaseSample {
 
     protected void initClient() {
         PixelForceClientProperties.getInstance().setEndpoint("https://api-gateway.hiforce.net/pixel_force_open_api");
-        PixelForceClientProperties.getInstance().setAccessKey(getAccessKey());
-        PixelForceClientProperties.getInstance().setAccessSecret(getAccessSecret());
+        String key = System.getenv("access_key");
+        String secret = System.getenv("access_secret");
+        if(StringUtils.isNotEmpty(key)){
+            PixelForceClientProperties.getInstance().setAccessKey(key);
+        }else {
+            PixelForceClientProperties.getInstance().setAccessKey(getAccessKey());
+        }
+        if(StringUtils.isNotEmpty(secret)){
+            PixelForceClientProperties.getInstance().setAccessSecret(secret);
+        }else {
+            PixelForceClientProperties.getInstance().setAccessSecret(getAccessSecret());
+        }
     }
     
     public void waitAndQueryTaskExecuteResult(InvokeResult invokeResult, String resourceId) throws Exception {
