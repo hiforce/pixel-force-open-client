@@ -81,7 +81,7 @@ PixelForce除了提供在线图形化操作界面外，还提供了Open API方�
 * 留衣重绘：保留人物衣服不变，将人物以及背景进行替换重新绘制
 * 文生图：根据文字描述的关键词，生成图像
 * 文本换脸：根据提示词描述对指定的图片中的人物进行换脸。[查看样例](https://github.com/hiforce/pixel-force-open-client/wiki/%E6%96%87%E6%9C%AC%E6%8D%A2%E8%84%B8%E5%9C%BA%E6%99%AF%E6%A0%B7%E4%BE%8B)
-* 高质量去除背景(TBD)：
+* 高质量去除背景：将指定图片的背景去除，变成透明底，或者变成指定颜色，或者变成指定其他图片。[查看样例](https://github.com/hiforce/pixel-force-open-client/wiki/%E9%AB%98%E8%B4%A8%E9%87%8F%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF)
 * 高质量白底图(TBD)：
 
 **基于PixelForce OpenAPI进行绘图的步骤：**
