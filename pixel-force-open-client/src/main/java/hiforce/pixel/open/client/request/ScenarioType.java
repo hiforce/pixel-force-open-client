@@ -11,8 +11,11 @@ public enum ScenarioType implements IType {
 
     GENERAL_PROMPT("GeneralPrompt"),
     TXT_2_IMG("TagGenerate"),
+    TURBO_TXT_2_IMG("TurboTagGenerate"),
     IMG_2_IMG("Image2Image"),
     CHANGE_BG("ChangeBg"),
+
+    TURBO_CHANGE_BG("TurboChangeBg"),
     RESERVE_CLOTH("ReserveCloth"),
     QUERY_RESOURCE("QueryResource"),
     UPLOAD_IMG("UploadImage"),
