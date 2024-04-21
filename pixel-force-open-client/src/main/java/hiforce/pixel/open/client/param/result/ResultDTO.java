@@ -100,7 +100,7 @@ public class ResultDTO extends BaseParamDTO {
 
     public static long randomSeed() {
         Random random = new Random();
-        long num = random.nextLong();
+        long num = random.nextInt();
         return num > 0 ? num : -num;
     }
 
