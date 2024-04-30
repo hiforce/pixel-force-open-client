@@ -7,8 +7,11 @@ In addition to providing an online graphical interface, PixelForce also offers a
 * Clothes Redesign: Keep the clothes of the subject unchanged while replacing and redesigning the subject and background.
 * Text-to-Image: Generate images based on keywords from textual descriptions.
 * Text Swap Face:Based on the prompts, change the faces of the specified individuals in the image. [View Example](https://github.com/hiforce/pixel-force-open-client/wiki/Text-Swap-Face-Sample)
-* High-quality Background Removal (TBD): [To DO]
+* High-quality Background Removal
 * High-quality White Background Image (TBD): [To DO]
+* High-quality upscale image to 4K
+
+  ![upscale_sample](https://github.com/hiforce/pixel-force-open-client/assets/11450506/1f196674-073d-4257-bd41-3e6ed039fb7a)
 
 
 **Based on PixelForce OpenAPI Drawing Steps:**
