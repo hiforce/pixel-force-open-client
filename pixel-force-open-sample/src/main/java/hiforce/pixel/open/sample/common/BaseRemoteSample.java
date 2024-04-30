@@ -60,7 +60,7 @@ public abstract class BaseRemoteSample extends BaseSample {
                     System.out.println("Task task running:" + JSON.toJSONString(taskResult));
                 }
             }
-        }, 1000L, 1000L);
+        }, 10000L, 10000L);
         countDownLatch.await();
     }
 

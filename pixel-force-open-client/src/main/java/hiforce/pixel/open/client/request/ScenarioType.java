@@ -7,6 +7,7 @@ import lombok.Getter;
  * @author Rocky Yu
  * @since 2023/11/28
  */
+@Getter
 public enum ScenarioType implements IType {
 
     GENERAL_PROMPT("GeneralPrompt"),
@@ -14,17 +15,16 @@ public enum ScenarioType implements IType {
     TURBO_TXT_2_IMG("TurboTagGenerate"),
     IMG_2_IMG("Image2Image"),
     CHANGE_BG("ChangeBg"),
-
     TURBO_CHANGE_BG("TurboChangeBg"),
     RESERVE_CLOTH("ReserveCloth"),
     QUERY_RESOURCE("QueryResource"),
     UPLOAD_IMG("UploadImage"),
     GET_TASK_RESULT("GetTaskResult"),
     TEXT_SWAP_FACE("TextSwapFace"),
+    REMOVE_BG("RemoveBg"),
+    UPSCALE_4X_ULTRA_SHARP("Upscale4xUltraSharp"),
+    ;
 
-    REMOVE_BG("RemoveBg");
-
-    @Getter
     private final String value;
 
     ScenarioType(String value) {

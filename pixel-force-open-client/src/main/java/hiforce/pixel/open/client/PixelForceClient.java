@@ -19,6 +19,7 @@ import hiforce.pixel.open.client.request.submit.PixelSubmitData;
 import hiforce.pixel.open.client.request.submit.UploadImageClientRequest;
 import hiforce.pixel.open.client.request.swap_face.TextSwapFaceClientRequest;
 import hiforce.pixel.open.client.request.text2Img.Text2ImgClientRequest;
+import hiforce.pixel.open.client.request.upscale.UpscaleImageRequest;
 import hiforce.pixel.open.client.response.InvokeResult;
 import hiforce.pixel.open.client.response.ResourceResult;
 import hiforce.pixel.open.client.response.TaskResult;
@@ -143,6 +144,14 @@ public class PixelForceClient {
                 return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode())
                         .desc("The Background Image is Empty").build();
             }
+        }
+        return _invoke(request, "/pixel/api/general_invoke");
+    }
+
+    public InvokeResult upscaleTo4xUltraSharp(UpscaleImageRequest request){
+        if (request.isEnableMask() && StringUtils.isBlank(request.getMaskImagePath())) {
+            return InvokeResult.builder().status(ApiStatusEnum.FAIL.getCode())
+                    .desc("The MaskImagePath is Empty").build();
         }
         return _invoke(request, "/pixel/api/general_invoke");
     }
