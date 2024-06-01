@@ -7,6 +7,7 @@ import lombok.Getter;
  * @author Rocky Yu
  * @since 2023/10/23
  */
+@Getter
 public enum PromptStyleType implements IStyleType {
 
     ABSTRACT("abstract", "PROMPT-STYLE-ABSTRACT"),
@@ -28,10 +29,8 @@ public enum PromptStyleType implements IStyleType {
     SURREALIST("surrealist photography", "PROMPT-STYLE-SURREALIST"),
     TINTYPE("tintype", "PROMPT-STYLE-TINTYPE");
 
-    @Getter
     private final String value;
 
-    @Getter
     private final String descKey;
 
 
