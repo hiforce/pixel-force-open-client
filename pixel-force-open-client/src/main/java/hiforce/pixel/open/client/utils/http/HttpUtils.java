@@ -2,6 +2,7 @@ package hiforce.pixel.open.client.utils.http;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
@@ -31,6 +32,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -96,7 +98,7 @@ public class HttpUtils {
     public String doJsonDataPost(String requestUrl, String jsonData) throws Exception {
         HttpPost httpPost = new HttpPost(requestUrl);
         httpPost.setHeader("Content-Type", "application/json;charset=UTF-8");
-        StringEntity se = new StringEntity(jsonData);
+        StringEntity se = new StringEntity(jsonData, Charsets.UTF_8);
         se.setContentType(CONTENT_TYPE_TEXT_JSON);
         httpPost.setEntity(se);
         CloseableHttpResponse response = null;
