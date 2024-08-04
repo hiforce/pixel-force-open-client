@@ -19,9 +19,9 @@
     </description>
     <url>https://github.com/hiforce/pixel-force-open-client</url>
     <inceptionYear>2024</inceptionYear>
-    <version>1.0.9.3-SNAPSHOT</version>
+    <version>1.0.9.3</version>
     <properties>
-        <pixel-force-open-version>1.0.9.3-SNAPSHOT</pixel-force-open-version>
+        <pixel-force-open-version>1.0.9.3</pixel-force-open-version>
         <version.lattice>1.0.18.3</version.lattice>
         <version.jdk>1.8</version.jdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -97,33 +97,32 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
     <distributionManagement>
         <repository>
-            <id>hiforce-repo-release</id>
+            <id>hiforce-inc-hf-release</id>
             <name>release</name>
-            <url>http://maven.hiforce.net/repository/maven-releases/</url>
+            <url>https://hiforce-inc-maven.pkg.coding.net/repository/hf/release/</url>
         </repository>
         <snapshotRepository>
-            <id>hiforce-repo-snapshot</id>
+           <id>hiforce-inc-hf-snapshot</id>
             <name>snapshot</name>
-            <url>http://maven.hiforce.net/repository/maven-snapshots/</url>
+                    <url>https://hiforce-inc-maven.pkg.coding.net/repository/hf/snapshot/</url>
         </snapshotRepository>
-    </distributionManagement>
+   </distributionManagement>
+
     <profiles>
         <profile>
             <id>hiforce</id>
             <distributionManagement>
                 <repository>
-                    <id>hiforce-repo-release</id>
+                    <id>hiforce-inc-hf-release</id>
                     <name>release</name>
-                    <url>http://maven.hiforce.net/repository/maven-releases/</url>
+                    <url>https://hiforce-inc-maven.pkg.coding.net/repository/hf/release/</url>
                 </repository>
                 <snapshotRepository>
-                    <id>hiforce-repo-snapshot</id>
+                    <id>hiforce-inc-hf-snapshot</id>
                     <name>snapshot</name>
-                    <url>http://maven.hiforce.net/repository/maven-snapshots/</url>
+                    <url>https://hiforce-inc-maven.pkg.coding.net/repository/hf/snapshot/</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
