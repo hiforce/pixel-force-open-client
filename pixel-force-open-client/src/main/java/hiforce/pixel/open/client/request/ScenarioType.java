@@ -23,6 +23,8 @@ public enum ScenarioType implements IType {
     TEXT_SWAP_FACE("TextSwapFace"),
     REMOVE_BG("RemoveBg"),
     UPSCALE_4X_ULTRA_SHARP("Upscale4xUltraSharp"),
+    EXTEND_IMAGE("ExtendImage"),
+    REPLACE_OBJECT("ReplaceObject"),
     ;
 
     private final String value;
